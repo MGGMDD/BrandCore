@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.inditex.brandcore</groupId>
+    <artifactId>BrandCore</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>brandcore</name>
+    <description>Test Exercise</description>
+
+    <properties>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jackson.databind.nullable.version>0.2.3</jackson.databind.nullable.version>
+        <json.version>20220924</json.version>
+        <lombok.version>1.18.24</lombok.version>
+        <openapi.generator.generateApis>true</openapi.generator.generateApis>
+        <openapi.generator.generateSupportingFiles>true</openapi.generator.generateSupportingFiles>
+        <openapi.generator.version>6.1.0</openapi.generator.version>
+        <org.commons-validator.version>1.7</org.commons-validator.version>
+        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+        <codegen.skip>false</codegen.skip>
+    </properties>
+    <dependencies>
+        <!-- Core dependency -->
+        <dependency>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>
+
+        <!-- Servlet WebApp starter	-->
+        <dependency>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>spring-data-commons</artifactId>
+            <groupId>org.springframework.data</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>hibernate-validator</artifactId>
+            <groupId>org.hibernate</groupId>
+            <version>6.2.5.Final</version>
+        </dependency>
+        <!-- Test Dependencies -->
+        <dependency>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <exclusions>
+                <!-- Spring logging exclusion -->
+                <exclusion>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+                <!-- Junit exclusion in favour of JUnit5 -->
+                <exclusion>
+                    <artifactId>junit</artifactId>
+                    <groupId>junit</groupId>
+                </exclusion>
+            </exclusions>
+            <groupId>org.springframework.boot</groupId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Junit 5 Dependencies -->
+        <dependency>
+            <artifactId>junit-jupiter</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <artifactId>junit-platform-launcher</artifactId>
+            <groupId>org.junit.platform</groupId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope> <!-- Esta línea es importante para Lombok -->
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>openapi-generator-cli</artifactId>
+            <version>4.3.1</version> <!-- Reemplaza con la versión deseada -->
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <artifactId>commons-validator</artifactId>
+            <groupId>commons-validator</groupId>
+            <version>${org.commons-validator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>6.0.12</version>
+        </dependency>
+        <dependency>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <groupId>org.openapitools</groupId>
+            <version>${jackson.databind.nullable.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version> <!-- Reemplaza con la versión adecuada -->
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version> <!-- Reemplaza con la versión que necesites -->
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+            </plugin>
+            <!-- Attach source Maven Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Javadoc Maven Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.1</version> <!-- Reemplaza con la versión que estás utilizando -->
+                <configuration>
+                    <!-- Configuración específica del plugin -->
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version> <!-- Reemplaza con la versión que estás utilizando -->
+                <configuration>
+                    <source>1.8</source> <!-- Especifica aquí la versión de Java que deseas usar -->
+                    <target>1.8</target> <!-- Especifica aquí la versión de Java que deseas usar -->
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <compilerArg>
+                            -Amapstruct.suppressGeneratorTimestamp=true
+                        </compilerArg>
+                        <compilerArg>
+                            -Amapstruct.suppressGeneratorVersionInfoComment=true
+                        </compilerArg>
+                        <compilerArg>
+                            -Amapstruct.defaultComponentModel=spring
+                        </compilerArg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>4.3.1</version> <!-- Reemplaza con la versión deseada -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <id>prices</id>
+                        <configuration>
+                            <addCompileSourceRoot>true</addCompileSourceRoot>
+                            <apiPackage>com.inditex.brandcore.infrastructure.rest
+                            </apiPackage>
+                            <configOptions>
+                                <delegatePattern>true</delegatePattern>
+                                <discriminatorCaseSensitive>true</discriminatorCaseSensitive>
+                                <interfaceOnly>true</interfaceOnly>
+                                <modelPropertyNaming>camelCase</modelPropertyNaming>
+                                <openApiValidate>3.0</openApiValidate>
+                                <performBeanValidation>true</performBeanValidation>
+                                <reactive>false</reactive>
+                                <serializableModel>true</serializableModel>
+                                <skipDefaultInterface>true</skipDefaultInterface>
+                                <sourceFolder>src/gen/java</sourceFolder>
+                                <useBeanValidation>true</useBeanValidation>
+                            </configOptions>
+                            <generateApis>${openapi.generator.generateApis}</generateApis>
+                            <generateModels>true</generateModels>
+                            <generatorName>spring</generatorName>
+                            <inputSpec>${project.basedir}/src/main/openapi/prices.yaml
+                            </inputSpec>
+                            <library>spring-boot</library>
+                            <logToStderr>true</logToStderr>
+                            <modelNameSuffix>Dto</modelNameSuffix>
+                            <modelPackage>com.inditex.brandcore.infrastructure.rest.data
+                            </modelPackage>
+                            <skip>${codegen.skip}</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

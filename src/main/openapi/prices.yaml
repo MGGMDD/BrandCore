@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info:
+  title: Test Java 2025
+  description: Service API for prices
+  version: "1.0"
+servers:
+  - url: http://localhost:8080/api/v1
+tags:
+  - name: prices
+    description: Service to consume product prices
+
+paths:
+  /prices:
+    get:
+      tags:
+        - prices
+      summary: Return product price information
+      description: Return product price information
+      operationId: pricesInfo
+      parameters:
+        - name: applicationDate
+          in: query
+          description: Application Date (format `yyyy-MM-dd'T'HH:mm:ss`)
+          required: true
+          schema:
+            type: string
+            format: date-time
+            example: "2023-10-19-23:59:89"
+        - name: productId
+          in: query
+          description: Product Code
+          required: true
+          schema:
+            type: integer
+            example: 35466
+        - name: brandId
+          in: query
+          description: Brand Code
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          description: Operation successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponsePricesInfo'
+        "400":
+          description: Error in the operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+components:
+  schemas:
+    #Response
+    BadRequest:
+      description: Malformed request
+      allOf:
+        - $ref: '#/components/schemas/ErrorResponse'
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "999"
+        code:
+          type: string
+          example: "Error"
+    ResponsePricesInfo:
+      required:
+        - productId
+        - brandId
+        - priceList
+        - applicationDate
+        - finalPrice
+      type: object
+      properties:
+        productId:
+          type: integer
+          example: 35466
+          description: Product Code
+        brandId:
+          type: integer
+          example: 1
+          description: Brand Code
+        priceList:
+          type: string
+          example: "1"
+          description: Price list
+        applicationDate:
+          type: string
+          example: "2023-10-19-23.59.89"
+        final_price:
+          type: number
+          format: double
+          example: 35.50
+          description: Final price to apply
