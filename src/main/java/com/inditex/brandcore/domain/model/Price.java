@@ -1,4 +1,29 @@
 package com.inditex.brandcore.domain.model;
 
-public class Price {
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+/**
+ * The type Price.
+ */
+@Getter
+@Setter
+@Builder
+public class Price implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private Brand brand;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+    private String priceList;
+    private Integer productId;
+    private Double price;
+    private Integer priority;
+    private String curr;
+
 }
