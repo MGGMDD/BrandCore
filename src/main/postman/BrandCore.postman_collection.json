@@ -1,0 +1,49 @@
+{
+	"info": {
+		"_postman_id": "011a5adb-b858-4c80-b128-1e5f1d9b1965",
+		"name": "BrandCore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9411007"
+	},
+	"item": [
+		{
+			"name": "PRICES",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/prices?applicationDate=2025-01-24T15%3A30%3A00Z&productId=35455&brandId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prices"
+					],
+					"query": [
+						{
+							"key": "applicationDate",
+							"value": "2025-01-24T15%3A30%3A00Z"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "brandId",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X 'GET' \\\r\n  'http://localhost:8080/api/v1/prices?applicationDate=2020-07-24T15%3A30%3A00Z&productId=35455&brandId=1' \\\r\n  -H 'accept: application/json'"
+			},
+			"response": []
+		}
+	]
+}
