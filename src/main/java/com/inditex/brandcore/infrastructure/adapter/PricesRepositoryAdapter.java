@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class PricesRepositoryAdapter implements PricesRepository {
@@ -21,8 +23,7 @@ public class PricesRepositoryAdapter implements PricesRepository {
     }
 
     @Override
-    public Price findPriceByDate(LocalDateTime applicationDate, Integer productId, Integer brandId) {
-        PriceEntity entity =  priceJpaRepository.findHighestPriorityPrice(applicationDate,productId,brandId);
-        return priceMapper.toPrice(entity);
+    public List<Price> findPriceByDate(LocalDateTime applicationDate, Integer productId, Integer brandId) {
+        return priceJpaRepository.findHighestPriorityPrice(applicationDate,productId,brandId).stream().map(priceMapper::toPrice).toList();
     }
 }

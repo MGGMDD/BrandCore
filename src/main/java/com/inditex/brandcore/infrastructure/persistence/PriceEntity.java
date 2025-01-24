@@ -4,40 +4,41 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 /**
  * The type Price entity.
  */
 @Entity
-@Table(name="PRICES")
 @Getter
 @Setter
+@Table(name = "PRICES",
+        indexes = {@Index(name = "FK_CADENA_INDEX_6", columnList = "BRAND_ID")})
 public class PriceEntity {
     @Id
-    private Integer id;
+    @Column(name = "PRICE_LIST", nullable = false)
+    private Integer pricesId;
 
-    @ManyToOne
-    @JoinColumn(name = "BRAND_ID")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "BRAND_ID", nullable = false)
     private BrandEntity brand;
 
-    @Column( name = "START_DATE")
-    private String startDate;
+    @Column(name = "START_DATE", nullable = false)
+    private LocalDateTime startDate;
 
-    @Column( name = "END_DATE")
-    private String endDate;
+    @Column(name = "END_DATE", nullable = false)
+    private LocalDateTime endDate;
 
-    @Column( name = "PRICE_LIST")
-    private String priceList;
-
-    @Column( name = "PRODUCT_ID")
+    @Column(name = "PRODUCT_ID", nullable = false)
     private Integer productId;
 
-    @Column( name = "PRICE")
-    private Double price;
-
-    @Column( name = "PRIORITY")
+    @Column(name = "PRIORITY", nullable = false)
     private Integer priority;
 
-    @Column( name = "CURR")
+    @Column(name = "PRICE", nullable = false)
+    private Double price;
+
+    @Column(name = "CURR", nullable = false, length = 3)
     private String curr;
 
 }

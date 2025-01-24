@@ -20,7 +20,7 @@ public class Price implements Serializable {
     private Brand brand;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private String priceList;
+    private Integer pricesList;
     private Integer productId;
     private Double price;
     private Integer priority;

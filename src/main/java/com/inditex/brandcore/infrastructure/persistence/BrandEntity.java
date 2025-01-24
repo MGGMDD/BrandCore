@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 /**
  * The type Brand entity.
  */
@@ -13,9 +16,13 @@ import lombok.Setter;
 @Setter
 public class BrandEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "BRAND_ID", nullable = false)
     private Integer id;
 
-    @Column( name = "BRAND_NAME")
+    @Column(name = "BRAND_NAME", nullable = false)
     private String brandName;
+
+    @OneToMany(mappedBy = "brand")
+    private
+    Set<PriceEntity> prices = new LinkedHashSet<>();
 }
