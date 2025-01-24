@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS brand (
-                                     brand_id INT,
+                                     brand_id INT AUTO_INCREMENT,
                                      brand_name VARCHAR(255) NOT NULL,
     CONSTRAINT "PK_BRAND" PRIMARY KEY (brand_id)
     );
