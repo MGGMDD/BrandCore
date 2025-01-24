@@ -1,5 +1,6 @@
 package com.inditex.brandcore.infrastructure.adapter;
 
+import com.inditex.brandcore.application.exception.BrandNotFoundException;
 import com.inditex.brandcore.domain.model.Brand;
 import com.inditex.brandcore.domain.ports.BrandRepository;
 import com.inditex.brandcore.infrastructure.mappers.BrandMapper;
@@ -28,7 +29,7 @@ public class BrandRepositoryAdapter implements BrandRepository {
     }
 
     @Override
-    public Brand findById(Integer integer) {
-        return brandJpaRepository.findById(integer).stream().map(brandMapper::toBrand).findAny().orElseThrow(EntityNotFoundException::new);
+    public Brand findById(Integer id) {
+        return brandJpaRepository.findById(id).stream().map(brandMapper::toBrand).findAny().orElseThrow(BrandNotFoundException::new);
     }
 }

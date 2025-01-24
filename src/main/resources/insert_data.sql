@@ -1,0 +1,2 @@
+INSERT INTO brand (brand_id, brand_name) VALUES (1, 'Zara')
+INSERT INTO prices (price_list, brand_id, start_date, end_date, product_id, priority, price, curr,id) VALUES (4, 1, '2025-01-01 16.00.00', '2025-12-31 23.59.59', 35455, 1, 38.95, 'EUR',1)

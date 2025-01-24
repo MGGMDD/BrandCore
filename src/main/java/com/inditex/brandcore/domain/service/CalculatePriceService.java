@@ -7,6 +7,7 @@ import com.inditex.brandcore.domain.model.response.ResponsePricesInfo;
 import com.inditex.brandcore.domain.ports.BrandRepository;
 import com.inditex.brandcore.domain.ports.PricesRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,14 +19,10 @@ import java.time.LocalDateTime;
  */
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class CalculatePriceService implements CalculatePriceUseCase {
     private final PricesRepository pricesRepository;
     private final BrandRepository brandRepository;
-
-    public CalculatePriceService(PricesRepository pricesRepository, BrandRepository brandRepository) {
-        this.pricesRepository = pricesRepository;
-        this.brandRepository = brandRepository;
-    }
 
     @Override
     public ResponsePricesInfo callToPricesInfo(LocalDateTime applicationDate, Integer productId, Integer brandId) {

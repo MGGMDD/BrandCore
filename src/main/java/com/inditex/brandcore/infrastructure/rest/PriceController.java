@@ -15,14 +15,10 @@ import java.time.OffsetDateTime;
  * The type Price controller.
  */
 @RestController
+@RequiredArgsConstructor
 public class PriceController  implements PricesApi{
     private final CalculatePriceUseCase calculatePriceUseCase;
     private final PriceRestMapper priceRestMapper;
-
-    public PriceController(CalculatePriceUseCase calculatePriceUseCase, PriceRestMapper priceRestMapper) {
-        this.calculatePriceUseCase = calculatePriceUseCase;
-        this.priceRestMapper = priceRestMapper;
-    }
 
     @Override
     public ResponseEntity<ResponsePricesInfoDto> _pricesInfo(OffsetDateTime applicationDate, Integer productId, Integer brandId) {

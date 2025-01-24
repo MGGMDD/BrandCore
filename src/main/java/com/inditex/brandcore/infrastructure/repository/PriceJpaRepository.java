@@ -7,12 +7,13 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 /**
  * The interface Price jpa repository.
  */
 @Repository
-public interface PriceJpaRepository extends JpaRepository<PriceEntity,Integer> {
+public interface PriceJpaRepository extends JpaRepository<PriceEntity, Integer> {
 
 
     /**
@@ -23,15 +24,15 @@ public interface PriceJpaRepository extends JpaRepository<PriceEntity,Integer> {
      * @param brandId         the brand id
      * @return the price entity
      */
-    @Query("SELECT p FROM PriceEntity p " +
-            "WHERE :applicationDate >= p.startDate AND :applicationDate <= p.endDate " +
-            "AND p.productId = :productId " +
-            "AND p.brand.id = :brandId " +
-            "AND p.priority = (SELECT MAX(p2.priority) FROM PriceEntity p2 " +
-            "WHERE :applicationDate >= p2.startDate AND :applicationDate <= p2.endDate " +
+    @Query("SELECT p1 FROM PriceEntity p1 " +
+            "WHERE :applicationDate BETWEEN p1.startDate AND p1.endDate " +
+            "AND p1.productId = :productId " +
+            "AND p1.brand.id = :brandId " +
+            "AND p1.priority = (SELECT MAX(p2.priority) FROM PriceEntity p2 " +
+            "WHERE :applicationDate BETWEEN p2.startDate AND p2.endDate " +
             "AND p2.productId = :productId " +
             "AND p2.brand.id = :brandId)")
-    PriceEntity findHighestPriorityPrice( @Param("applicationDate") LocalDateTime applicationDate,
-                                          @Param("productId") Integer productId,
-                                          @Param("brandId") Integer brandId);
+    Optional<PriceEntity> findHighestPriorityPrice(@Param("applicationDate") LocalDateTime applicationDate,
+                                                   @Param("productId") Integer productId,
+                                                   @Param("brandId") Integer brandId);
 }

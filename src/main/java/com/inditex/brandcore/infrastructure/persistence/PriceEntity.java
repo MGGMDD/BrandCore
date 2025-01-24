@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 /**
  * The type Price entity.
  */
@@ -20,10 +22,10 @@ public class PriceEntity {
     private BrandEntity brand;
 
     @Column( name = "START_DATE")
-    private String startDate;
+    private LocalDateTime startDate;
 
     @Column( name = "END_DATE")
-    private String endDate;
+    private LocalDateTime endDate;
 
     @Column( name = "PRICE_LIST")
     private String priceList;
