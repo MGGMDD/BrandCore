@@ -1,6 +1,9 @@
-package com.inditex.brandcore.application.exception;
+package com.inditex.brandcore.infrastructure.exception;
 
-import com.inditex.brandcore.application.exception.error.ErrorData;
+import com.inditex.brandcore.application.model.ErrorData;
+import com.inditex.brandcore.application.exception.BrandNotFoundException;
+import com.inditex.brandcore.application.exception.CustomMethodArgumentNotValidException;
+import com.inditex.brandcore.application.exception.PriceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;

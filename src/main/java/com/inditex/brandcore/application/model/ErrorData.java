@@ -1,6 +1,5 @@
-package com.inditex.brandcore.application.exception.error;
+package com.inditex.brandcore.application.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
