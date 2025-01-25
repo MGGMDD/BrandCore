@@ -2,7 +2,7 @@ package com.inditex.brandcore.application.exception;
 
 
 /**
- * The type Brand not found exception.
+ * The type Custom method argument not valid exception.
  */
 public class CustomMethodArgumentNotValidException extends RuntimeException {
     /**
@@ -15,7 +15,7 @@ public class CustomMethodArgumentNotValidException extends RuntimeException {
     public static final long serialVersionUID = 1L;
 
     /**
-     * Instantiates a new Brand not found exception.
+     * Instantiates a new Custom method argument not valid exception.
      */
     public CustomMethodArgumentNotValidException() {
         super();

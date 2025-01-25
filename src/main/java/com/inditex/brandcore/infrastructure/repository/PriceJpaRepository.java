@@ -17,12 +17,12 @@ public interface PriceJpaRepository extends JpaRepository<PriceEntity, Integer> 
 
 
     /**
-     * Find highest priority price price entity.
+     * Find highest priority price optional.
      *
      * @param applicationDate the application date
      * @param productId       the product id
      * @param brandId         the brand id
-     * @return the price entity
+     * @return the optional
      */
     @Query("SELECT p1 FROM PriceEntity p1 " +
             "WHERE :applicationDate BETWEEN p1.startDate AND p1.endDate " +

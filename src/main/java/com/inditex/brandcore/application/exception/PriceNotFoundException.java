@@ -2,7 +2,7 @@ package com.inditex.brandcore.application.exception;
 
 
 /**
- * The type Brand not found exception.
+ * The type Price not found exception.
  */
 public class PriceNotFoundException extends RuntimeException {
     /**
@@ -15,7 +15,7 @@ public class PriceNotFoundException extends RuntimeException {
     public static final long serialVersionUID = 1L;
 
     /**
-     * Instantiates a new Brand not found exception.
+     * Instantiates a new Price not found exception.
      */
     public PriceNotFoundException() {
         super();

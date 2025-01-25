@@ -15,31 +15,30 @@ import java.time.LocalDateTime;
 @Setter
 public class PriceEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PRICE_LIST", nullable = false, updatable = false)
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "BRAND_ID")
+    @JoinColumn(name = "BRAND_ID", nullable = false)
     private BrandEntity brand;
 
-    @Column( name = "START_DATE")
+    @Column( name = "START_DATE", nullable = false)
     private LocalDateTime startDate;
 
-    @Column( name = "END_DATE")
+    @Column( name = "END_DATE", nullable = false)
     private LocalDateTime endDate;
 
-    @Column( name = "PRICE_LIST")
-    private String priceList;
-
-    @Column( name = "PRODUCT_ID")
+    @Column( name = "PRODUCT_ID", nullable = false)
     private Integer productId;
 
-    @Column( name = "PRICE")
+    @Column( name = "PRICE", nullable = false)
     private Double price;
 
-    @Column( name = "PRIORITY")
+    @Column( name = "PRIORITY", nullable = false)
     private Integer priority;
 
-    @Column( name = "CURR")
+    @Column( name = "CURR", nullable = false, length = 3)
     private String curr;
 
 }

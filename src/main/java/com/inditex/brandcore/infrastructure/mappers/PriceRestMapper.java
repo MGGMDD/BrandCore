@@ -10,14 +10,6 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface PriceRestMapper {
     /**
-     * To response prices info response prices info.
-     *
-     * @param responsePricesInfoDto the response prices info dto
-     * @return the response prices info
-     */
-    ResponsePricesInfo toResponsePricesInfo(ResponsePricesInfoDto responsePricesInfoDto);
-
-    /**
      * To response prices info dto response prices info dto.
      *
      * @param responsePricesInfo the response prices info

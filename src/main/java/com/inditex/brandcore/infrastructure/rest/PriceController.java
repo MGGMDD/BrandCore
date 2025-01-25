@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 /**
@@ -21,8 +22,8 @@ public class PriceController  implements PricesApi{
     private final PriceRestMapper priceRestMapper;
 
     @Override
-    public ResponseEntity<ResponsePricesInfoDto> _pricesInfo(OffsetDateTime applicationDate, Integer productId, Integer brandId) {
-        ResponsePricesInfo response = calculatePriceUseCase.callToPricesInfo(applicationDate.toLocalDateTime(),productId,brandId);
+    public ResponseEntity<ResponsePricesInfoDto> _pricesInfo(LocalDateTime applicationDate, Integer productId, Integer brandId) {
+        ResponsePricesInfo response = calculatePriceUseCase.callToPricesInfo(applicationDate,productId,brandId);
         return ResponseEntity.ok().body(priceRestMapper.toResponsePricesInfoDto(response));
     }
 }

@@ -87,12 +87,17 @@ components:
           example: 1
           description: Brand Code
         priceList:
-          type: string
+          type: integer
           example: "1"
           description: Price list
-        applicationDate:
+        startDate:
           type: string
-          example: "2023-10-19-23.59.89"
+          format: date-time
+          example: "2023-10-19-23:59:89"
+        endDate:
+          type: string
+          format: date-time
+          example: "2023-10-19-23:59:89"
         final_price:
           type: number
           format: double

@@ -19,7 +19,8 @@ public class ResponsePricesInfo implements Serializable {
 
     private Integer productId;
     private Integer brandId;
-    private String priceList;
-    private LocalDateTime applicationDate;
+    private Integer priceList;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private Double finalPrice;
 }

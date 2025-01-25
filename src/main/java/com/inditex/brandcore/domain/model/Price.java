@@ -17,10 +17,10 @@ public class Price implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private Integer id;
     private Brand brand;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private String priceList;
     private Integer productId;
     private Double price;
     private Integer priority;
