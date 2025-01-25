@@ -1,11 +1,11 @@
 CREATE TABLE IF NOT EXISTS brand (
-                                     brand_id INT,
+                                     brand_id INT AUTO_INCREMENT,
                                      brand_name VARCHAR(255) NOT NULL,
     CONSTRAINT "PK_BRAND" PRIMARY KEY (brand_id)
     );
 
 CREATE TABLE IF NOT EXISTS prices (
-                                        price_list SMALLINT NOT NULL,
+                                        price_list INT AUTO_INCREMENT,
                                         brand_id INT NOT NULL,
                                         start_date TIMESTAMP NOT NULL,
                                         end_date TIMESTAMP NOT NULL,

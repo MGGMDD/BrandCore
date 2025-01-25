@@ -241,6 +241,13 @@
                             <modelPackage>com.inditex.brandcore.infrastructure.rest.data
                             </modelPackage>
                             <skip>${codegen.skip}</skip>
+                            <skip>${codegen.skip}</skip>
+                            <typeMappings>
+                                <typeMapping>OffsetDateTime=java.time.LocalDateTime</typeMapping>
+                            </typeMappings>
+                            <importMappings>
+                                <importMapping>java.time.OffsetDateTime=java.time.LocalDateTime</importMapping>
+                            </importMappings>
                         </configuration>
                     </execution>
                 </executions>
