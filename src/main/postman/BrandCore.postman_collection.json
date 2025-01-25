@@ -17,7 +17,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/prices?applicationDate=2025-01-24T15%3A30%3A00Z&productId=35455&brandId=1",
+					"raw": "http://localhost:8080/prices?applicationDate=2020-06-15T15%3A30%3A00Z&productId=35455&brandId=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -29,7 +29,7 @@
 					"query": [
 						{
 							"key": "applicationDate",
-							"value": "2025-01-24T15%3A30%3A00Z"
+							"value": "2020-06-15T15%3A30%3A00Z"
 						},
 						{
 							"key": "productId",
