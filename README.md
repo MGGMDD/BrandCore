@@ -8,6 +8,12 @@ Requisitos
 ----------
 - Java 17
 - Maven 3.9.9
+
+Estructura de Ramas
+-------------------
+- **`master`**: Rama principal donde se ha integrado el código final.
+- **`develop`**: Rama de desarrollo.
+- **`main`**: Rama predeterminada que ha sido creada automáticamente, no se utiliza.
   
 Tecnologías 
 -----------
