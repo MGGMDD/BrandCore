@@ -4,6 +4,11 @@ Test Java 2025 Capitole - Inditex
 Aplicación/servicio que provea un servicio rest de consulta tal que:
 Acepte como parámetros de entrada: fecha de aplicación, identificador de producto, identificador de cadena. Devuelva como datos de salida: identificador de producto, identificador de cadena, tarifa a aplicar, fechas de aplicación y precio final a aplicar. Utiliza una arquitectura hexagonal y una base de datos en memoria basado en H2 para la persistencia de datos.
 
+Requisitos
+----------
+- Java 17
+- Maven 3.9.9
+  
 Tecnologías 
 -----------
 - Java 17
@@ -15,7 +20,7 @@ Tecnologías
 - MapStruct
 - OpenApi
 - i18n
-
+  
 Configuración 
 -------------
 Se ha tenido en cuenta a la hora de la configuracion de H2 que pueda ser usada de forma automatica por los scripts de Fliway.
